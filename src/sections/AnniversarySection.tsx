@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import { BIRTHDAY_DATA } from "@/data/birthdayContent";
-import { useRef } from "react";
+import { useId, useRef, type KeyboardEvent } from "react";
 import { useChapterFlow } from "@/chapters/useChapterFlow";
 import couplePhoto from "@/assets/hero/couple-original-tone.png";
 import "./anniversary-scene.css";
@@ -41,21 +41,34 @@ export default function AnniversarySection() {
   const { anniversary } = BIRTHDAY_DATA;
   const { goTo } = useChapterFlow();
   const [selected, setSelected] = useState(0);
+  const navigationId = useId();
+  const tabsRef = useRef<HTMLDivElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const selectNote = (index: number) => {
-    const changed = index !== selected;
+    if (index === selected) return;
     setSelected(index);
     requestAnimationFrame(() => {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       // Only a newly selected note fades in. Chapter arrival owns its own timing.
-      if (!reduced && changed) copyRef.current?.firstElementChild?.animate([
-        { opacity: 0, transform: "translateY(7px)" },
+      if (!reduced) copyRef.current?.querySelector('.together-note')?.animate([
+        { opacity: .72, transform: "translateY(3px)" },
         { opacity: 1, transform: "translateY(0)" },
-      ], { duration: 500, easing: "cubic-bezier(.16,1,.3,1)" });
+      ], { duration: 200, easing: "cubic-bezier(.16,1,.3,1)" });
       if (window.matchMedia("(max-width: 760px)").matches) copyRef.current?.scrollIntoView({
         behavior: reduced ? "instant" : "smooth", block: "start",
       });
     });
+  };
+  const navigateTabs = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let next: number;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % notes.length;
+    else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index + notes.length - 1) % notes.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = notes.length - 1;
+    else return;
+    event.preventDefault();
+    tabsRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus({ preventScroll: true });
+    selectNote(next);
   };
   const note = notes[selected];
   return <section className="anniversary-scene together-scene" data-milestone={selected} aria-label={anniversary.chapter}>
@@ -67,7 +80,8 @@ export default function AnniversarySection() {
             <img src={couplePhoto} alt="Tấm ảnh hai đứa mình bên nhau" width="1922" height="818" draggable={false}/>
             <figcaption>our little story · since 2025</figcaption>
           </figure>
-          <div ref={copyRef} className="together-copy" aria-live="polite" aria-atomic="true">
+          <div ref={copyRef} className="together-copy" role="tabpanel" id={`${navigationId}-panel`} aria-labelledby={`${navigationId}-tab-${selected}`} tabIndex={0}>
+            <span className="together-reading-label">Đang đọc <i aria-hidden="true">·</i> Trang 0{selected + 1} / 03</span>
             <div key={selected} className="together-note">
               <div className="together-note__heading"><h3>{note.title}</h3><span>{note.subtitle}</span></div>
               <div className="together-note__body">{note.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
@@ -83,8 +97,16 @@ export default function AnniversarySection() {
           </aside>
       </article>
     </div>
-    <div className="together-stations" aria-label="Những mốc của tụi mình">
-      {anniversary.beats.map((beat, index) => <button key={beat.label} className="together-station" aria-pressed={selected === index} onClick={() => selectNote(index)}><span className="together-station__number">0{index + 1}</span><span><small>{beat.label}</small><strong>{beat.copy}</strong></span><i aria-hidden="true">↗</i></button>)}
+    <div className="together-navigation">
+      <div className="together-navigation__heading"><span>LẬT TRANG KỶ NIỆM</span><span>Chọn một trang để đọc.</span></div>
+      <div ref={tabsRef} className="together-stations" role="tablist" aria-label="Chọn trang kỷ niệm">
+        {anniversary.beats.map((beat, index) => <button key={beat.label} className="together-station" role="tab"
+          id={`${navigationId}-tab-${index}`} aria-controls={`${navigationId}-panel`} aria-selected={selected === index} tabIndex={selected === index ? 0 : -1}
+          onKeyDown={event => navigateTabs(event, index)} onClick={() => selectNote(index)}>
+          <span className="together-station__top"><span className="together-station__number">0{index + 1}</span><span className="together-station__status">{selected === index ? <><i aria-hidden="true">✓</i> Đang đọc</> : <>Bấm để mở <i aria-hidden="true">↗</i></>}</span></span>
+          <span className="together-station__copy"><small>{beat.label}</small><strong>{beat.copy}</strong></span>
+        </button>)}
+      </div>
     </div>
     <footer className="together-footer"><button className="together-next" onClick={() => goTo(0)}>Xem lại từ đầu <i aria-hidden="true">↺</i></button></footer>
   </section>;

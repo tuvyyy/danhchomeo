@@ -11,7 +11,7 @@ function hasSession() {
 
 function WorkspaceLoading() {
   return <main className="job-entry job-entry--loading" aria-busy="true">
-    <div role="status"><span className="job-entry__spinner" aria-hidden="true" />Đang mở phiên làm việc…</div>
+    <div role="status"><span className="job-entry__spinner" aria-hidden="true" />Đợi xíu nha…</div>
   </main>;
 }
 
@@ -24,7 +24,7 @@ export default function EntryGate() {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    document.title = unlocked ? "Dành cho em Meo 🤍" : "Job Console · Workspace";
+    document.title = unlocked ? "Dành cho em Meo 🤍" : "little space · vào xem thử";
   }, [unlocked]);
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
@@ -44,27 +44,22 @@ export default function EntryGate() {
   if (unlocked) return <Suspense fallback={<WorkspaceLoading />}><BirthdayApp /></Suspense>;
 
   return <main className="job-entry">
-    <header className="job-entry__header">
-      <a className="job-entry__brand" href={import.meta.env.BASE_URL} aria-label="Job Console">
-        <span aria-hidden="true">J</span><strong>Job Console</strong>
-      </a>
-      <span className="job-entry__workspace">PRIVATE WORKSPACE</span>
-    </header>
+    <header className="job-entry__header"><a className="job-entry__brand" href={import.meta.env.BASE_URL}>little space<span aria-hidden="true">✳</span></a><span>một chiếc demo nhỏ.</span></header>
     <div className="job-entry__main">
-      <section className="job-entry__intro" aria-labelledby="workspace-title">
-        <span className="job-entry__eyebrow"><i aria-hidden="true" />REVIEW ENVIRONMENT</span>
-        <h1 id="workspace-title">Mở workspace.<br />Tiếp tục phiên chạy.</h1>
-        <p>Đăng nhập bằng tài khoản được cấp để kiểm tra kết quả và tiếp tục phiên làm việc.</p>
-        <div className="job-entry__preview" aria-hidden="true">
-          <div className="job-entry__preview-header"><span>WORKFLOW / REVIEW</span><span>CHỜ ĐĂNG NHẬP</span></div>
-          <div className="job-entry__pipeline"><span>01<i />Kết nối</span><b>→</b><span>02<i />Kiểm tra</span><b>→</b><span>03<i />Hoàn tất</span></div>
-          <div className="job-entry__preview-footer"><i />Phiên làm việc sẵn sàng</div>
+      <div className="job-entry__window-bar" aria-hidden="true"><span><i /><i /><i /></span><span>vào xem thử / 01</span><span>↗</span></div>
+      <section className="job-entry__intro" aria-labelledby="demo-title">
+        <span className="job-entry__eyebrow">hello, bạn ghé chơi.</span>
+        <h1 id="demo-title">Vào nghịch<br /><em>một chút nha.</em></h1>
+        <p>Có một chiếc demo đang chờ bạn xem thử.<br />Nhập tài khoản mình gửi là vào được nè.</p>
+        <div className="job-entry__desk" aria-hidden="true">
+          <div className="job-entry__folder"><span>little things</span><svg viewBox="0 0 130 80" fill="none"><path d="M8 60c23-48 73-58 108-31M103 16l14 12-15 13" /></svg><small>open & explore ↗</small></div>
+          <div className="job-entry__sticky"><i />nhờ bạn<br />xem giúp xíu.<span>thank you :)</span></div>
         </div>
       </section>
       <section className="job-entry__panel" aria-labelledby="login-title">
-        <span className="job-entry__panel-label">WORKSPACE ACCESS</span>
-        <h2 id="login-title">Đăng nhập</h2>
-        <p>Nhập thông tin để mở phiên kiểm tra.</p>
+        <span className="job-entry__panel-label">01 / cửa vào</span>
+        <h2 id="login-title">Đăng nhập xíu nha.</h2>
+        <p>Hai ô thôi, rồi mình bắt đầu.</p>
         <form onSubmit={submit}>
           <label htmlFor="job-username">Người dùng</label>
           <input id="job-username" name="username" value={username} autoComplete="username" autoCapitalize="none" spellCheck={false} required
@@ -79,13 +74,13 @@ export default function EntryGate() {
               onClick={() => setShowPassword(value => !value)}>{showPassword ? "Ẩn" : "Hiện"}</button>
           </div>
           <div className="job-entry__feedback" id="job-login-error" aria-live="polite" aria-atomic="true">
-            {error && "Tên người dùng hoặc mật khẩu chưa đúng. Thử lại nhé."}
+            {error && "Hình như gõ nhầm xíu rồi. Kiểm tra lại hai ô nha."}
           </div>
-          <button className="job-entry__submit" type="submit">Đăng nhập<span aria-hidden="true">↗</span></button>
+          <button className="job-entry__submit" type="submit">Vào xem thử<span aria-hidden="true">↗</span></button>
         </form>
-        <div className="job-entry__access-note"><svg aria-hidden="true" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="2" /><path d="M5 7V5a3 3 0 0 1 6 0v2" /></svg>Chỉ dành cho tài khoản được cấp.</div>
+        <div className="job-entry__access-note">chậm chậm cũng được, hông gấp.</div>
       </section>
     </div>
-    <footer className="job-entry__footer"><span>Job Console / Review workspace</span><span>SESSION ACCESS · V1.0</span></footer>
+    <footer className="job-entry__footer"><span>a little space to explore.</span><span>made slowly, just for fun.</span></footer>
   </main>;
 }
