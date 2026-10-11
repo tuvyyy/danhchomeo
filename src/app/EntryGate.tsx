@@ -76,7 +76,6 @@ export default function EntryGate() {
           </div>
           <button className="job-entry__submit" type="submit">Vào xem thử<span aria-hidden="true">↗</span></button>
         </form>
-        <div className="job-entry__access-note">chậm chậm cũng được, hông gấp.</div>
       </section>
     </div>
     <footer className="job-entry__footer"><span>a little space to explore.</span><span>made slowly, just for fun.</span></footer>
