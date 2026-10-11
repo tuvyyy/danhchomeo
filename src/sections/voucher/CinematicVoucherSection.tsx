@@ -6,7 +6,7 @@ import VoucherEnvelopeScene from "./VoucherEnvelopeScene";
 import VoucherDetail, { type VoucherSelection } from "./VoucherDetail";
 import CinematicOrnaments, { CORNER_IMAGE } from "./CinematicOrnaments";
 import EnvelopePetals from "./EnvelopePetals";
-import { preloadEnvelopeAssets, type EnvelopeState } from "./voucherConfig";
+import { LETTER_NOTE_ITEM, preloadEnvelopeAssets, type EnvelopeState } from "./voucherConfig";
 import { useEnvelopeMotion } from "./useEnvelopeMotion";
 import "./cinematic-envelope.css";
 
@@ -70,8 +70,7 @@ export default function CinematicVoucherSection({ onComplete }: { onComplete: ()
     <div className="envelope-grain" aria-hidden="true" />
     <CinematicOrnaments />
     <EnvelopePetals />
-    <p className="sr-only">Tui không ở cạnh để dẫn em đi ăn, nên gửi em một chút để tiêu nè.
-      Tuỳ em thích gì thì dùng nhé, chỉ cần em vui là được. Luôn thương em.
+    <p className="sr-only">{LETTER_NOTE_ITEM.description}{" "}
       Chạm dấu sáp để mở hoặc khép thư. Chọn voucher để xem chi tiết. Trên điện thoại, vuốt ngang để xem trọn phong bì.</p>
     <VoucherEnvelopeScene state={state} ready={assets === "ready"} running={running} interactive={arrived && running}
       onToggle={toggleEnvelope} onSelect={selectVoucher} onHover={setHovered} hovered={hovered} inspected={inspected} />

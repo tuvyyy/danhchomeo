@@ -55,7 +55,7 @@ export default function VoucherEnvelopeScene({ state, ready, running, interactiv
               type="button"
               className="scene-ticket__hit"
               disabled={state !== "open"}
-              aria-label="Đọc thư tay: Tui không ở cạnh để dẫn em đi ăn, nên gửi em một chút để tiêu nè"
+              aria-label={`Đọc thư tay: ${LETTER_NOTE_ITEM.description}`}
               aria-haspopup="dialog"
               data-voucher="letter-note"
               onPointerEnter={event => {

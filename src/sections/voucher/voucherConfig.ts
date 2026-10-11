@@ -30,7 +30,7 @@ export const ENVELOPE_ASSETS = {
   // Only the rectangular interior. The triangular liner would be a second lid.
   liner: asset("04_envelope_inner_liner.png", 1448, 1086, [38, 535, 1376, 535]),
   seal: asset("05_wax_seal.png", 1254, 1254, [82, 70, 1122, 1113]),
-  letter: asset("06_letter_note.png", 1122, 1402, [3, 94, 1120, 1280]),
+  letter: asset("06_letter_note.png?v=20261011", 1122, 1402, [3, 94, 1120, 1280]),
 } as const;
 
 export type Voucher = {
@@ -72,9 +72,14 @@ export const VOUCHERS: readonly Voucher[] = [
   },
 ];
 
+export const LETTER_NOTE_PARAGRAPHS = [
+  "Tui không ở cạnh đễ dẫn cục dàng đi ăn, đi chơi, đi leo cây nên là cục dàng sử dụng voucher để kêu meo meo dới toi nhá",
+  "Em meo dui dẻ nà được hếc",
+] as const;
+
 export const LETTER_NOTE_ITEM: Voucher = {
   id: "letter", number: "00", title: "Lá thư tay dành cho em", shortTitle: "Thư tay",
-  description: "Tui không ở cạnh để dẫn em đi ăn, nên gửi em một chút để tiêu nè. Tuỳ em thích gì thì dùng nhé, chỉ cần em vui là được. Luôn thương em ♡",
+  description: LETTER_NOTE_PARAGRAPHS.join("\n\n"),
   image: ENVELOPE_ASSETS.letter,
 };
 

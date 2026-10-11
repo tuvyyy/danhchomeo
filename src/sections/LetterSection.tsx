@@ -5,7 +5,7 @@ import { useSceneOverlay } from "@/components/effects/SceneExperience";
 import { useDialogFocus } from "@/components/effects/useDialogFocus";
 import { useChapterLifecycle } from "@/chapters/useChapterLifecycle";
 import { useChapterFlowContext } from "@/chapters/ChapterFlowContext";
-import { ENVELOPE_ASSETS } from "./voucher/voucherConfig";
+import { ENVELOPE_ASSETS, LETTER_NOTE_ITEM, LETTER_NOTE_PARAGRAPHS } from "./voucher/voucherConfig";
 import LetterBloomGarden from "./flowers/LetterBloomGarden";
 import LetterVines from "./flowers/LetterVines";
 import "./letter-scene.css";
@@ -19,14 +19,14 @@ function LetterPage({ index }: { index: number }) {
         <div className="letter-page__note-container">
           <img
             src={ENVELOPE_ASSETS.letter.src}
-            alt="Lá thư tay: Tui không ở cạnh để dẫn em đi ăn, nên gửi em một chút để tiêu nè. Tuỳ em thích gì thì dùng nhé, chỉ cần em vui là được. Luôn thương em ♡"
+            alt={`Lá thư tay: ${LETTER_NOTE_ITEM.description}`}
             className="letter-page__note-img"
           />
         </div>
         <div className="sr-only">
           <h3>Gửi em mèo,</h3>
-          <p>Tui không ở cạnh để dẫn em đi ăn, nên gửi em một chút để tiêu nè. Tuỳ em thích gì thì dùng nhé, chỉ cần em vui là được.</p>
-          <p className="letter-page__signature">Luôn thương em ♡</p>
+          <p>{LETTER_NOTE_PARAGRAPHS[0]}</p>
+          <p className="letter-page__signature">{LETTER_NOTE_PARAGRAPHS[1]}</p>
         </div>
         <span className="letter-page__number">01 / 02</span>
       </article>
