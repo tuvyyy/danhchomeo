@@ -180,7 +180,7 @@ export const BIRTHDAY_DATA = {
     beats: [
       { label: "11.01.2025", copy: "tụi mình bắt đầu" },
       { label: "Sài Gòn ↔ Hà Nội", copy: "xa một chút, thương nhiều chút" },
-      { label: "Hôm nay", copy: "vẫn là em và tui" },
+      { label: "Hôm nay", copy: "vẫn là meo và tui" },
     ],
     cta: "Xem lại từ đầu",
   },

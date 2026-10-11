@@ -38,7 +38,7 @@
 .together-station strong { display:block;margin-top:5px;font:italic 26px/1.2 var(--font-display);font-weight:500; }
 .together-station i { margin-left:auto;font:26px/1 var(--font-display);opacity:0;transition:opacity .2s; }
 .together-station[aria-pressed='true'] i,.together-station:hover i { opacity:1; }
-.together-footer { margin-top:19px;display:flex;align-items:center;justify-content:space-between;gap:20px; }
+.together-footer { margin-top:19px;display:flex;align-items:center;justify-content:flex-end;gap:20px; }
 .together-footer > span { font:italic 24px/1.4 var(--font-display);color:#47584b; }
 .together-next { display:inline-flex;align-items:center;gap:25px;min-height:48px;padding:0;background:none;border:0;border-bottom:1px solid #25334b70;color:#25334b;font:15px/1.5 var(--font-body);cursor:pointer; }
 .together-next i { font:26px/1 var(--font-display);font-style:normal; }

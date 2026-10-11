@@ -92,7 +92,7 @@ export default function FlowersSection({ onComplete }: { onComplete: () => void 
       </header>
 
       <div className="nature-bloom__intro">
-        <h2>Một khoảng trời,<em> chỉ có tụi mình.</em></h2>
+        <h2>Một khoảng trời - Hai con mòe -<em> Một khu vườn hoa.</em></h2>
       </div>
 
       <div className="nature-bloom__message" aria-live="polite">

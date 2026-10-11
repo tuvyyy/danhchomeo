@@ -12,9 +12,29 @@ function daysSinceAnniversary() {
 }
 
 const notes = [
-  { title: "mon bel amour", subtitle: "ngày mình bắt đầu", paragraphs: ["Có một ngày, giữa rất nhiều ngày bình thường, tụi mình tìm thấy nhau. Từ hôm ấy, tui có thêm một người để nhớ, một người để kể nghe những chuyện nhỏ xíu trong ngày.", "11 tháng 01 năm 2025. Tui muốn giữ ngày này như giữ một tấm hình cũ — để mỗi lần nhìn lại, vẫn thấy lòng mình ấm như lúc ban đầu."], closing: "Từ hôm đó, ngày nào cũng có tụi mình." },
-  { title: "despite the miles", subtitle: "xa một chút, thương nhiều chút", paragraphs: ["Sài Gòn — Hà Nội. Hai khoảng trời, một người tui luôn muốn ở gần. Mình gửi thương nhớ qua những cuộc gọi khuya và từng lời hẹn.", "Có những hôm chỉ ước được ngồi cạnh em, chẳng cần nói gì. Dù hôm nay còn xa, trong những điều tui mong cho ngày mai, lúc nào cũng có em."], closing: "Hai thành phố. Một người luôn ở trong lòng." },
-  { title: "to be continued…", subtitle: "vẫn là em và tui", paragraphs: ["Tụi mình đã đi qua từng cuộc gọi khuya, từng lần nhớ và từng lời hẹn. Cảm ơn em vì vẫn ở đây, cùng tui viết tiếp câu chuyện này.", "Tui mong mình còn nhiều buổi sáng cùng nhau, nhiều lần nắm tay, nhiều ngày bình thường mà sau này nhớ lại vẫn thấy thương. Không cần một câu chuyện hoàn hảo. Chỉ cần trong câu chuyện ấy, có tụi mình."], closing: "Cảm ơn em, vì hôm nay vẫn cùng tui viết tiếp." },
+  {
+    title: "mon bel amour", subtitle: "ngày mình bắt đầu",
+    paragraphs: [
+      "Có một ngày, giữa rất nhiều ngày bình thường, tụi mình tìm thấy nhau. Từ hôm ấy, tui có thêm một người để nhớ, một người để kể nghe những chuyện nhỏ xíu trong ngày.",
+      "11 tháng 01 năm 2025.",
+    ],
+    closing: "Từ hôm đó, ngày nào cũng có sở thú và nhiều màu sắc cùng nhau.",
+  },
+  {
+    title: "despite the miles", subtitle: "xa một chút, thương nhiều chút",
+    paragraphs: [
+      "Sài Gòn — Hà Nội.",
+      "Hong có xa xôi gì cạ, còn trong Việt Nam là ở đâu cũng là nhà. Mong ở Hà Nội chăm meo lên mấy cân để em bé chọt bụng meo meo nhá",
+    ],
+    closing: "",
+  },
+  {
+    title: "More n more....", subtitle: "vẫn là meo và tui",
+    paragraphs: [
+      "Hi vọng một ngày không xa sẽ gặp lại em meo, lúc đẩy tưởng tượng ra òi, mong nhà mình cùng nhau cố gắng nhá. Không dì là không thể với nhà mình, quánh quái giỏi nhất hệ mặt trời mờ. Yêu thương thật nhiều và thương yêu rất nhiều ạ.",
+    ],
+    closing: "Cảm ơn em, vì hôm nay vẫn cùng em bé viết tiếp nhiều chương như này.",
+  },
 ];
 
 export default function AnniversarySection() {
@@ -51,8 +71,8 @@ export default function AnniversarySection() {
             <div key={selected} className="together-note">
               <div className="together-note__heading"><h3>{note.title}</h3><span>{note.subtitle}</span></div>
               <div className="together-note__body">{note.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
-              <p className="together-note__closing">{note.closing}</p>
-              <span className="together-signature">thương em, luôn luôn.</span>
+              {note.closing && <p className="together-note__closing">{note.closing}</p>}
+              <span className="together-signature">thương em meo, nhớ em meo lắm.</span>
             </div>
           </div>
           <aside className="together-margin">
@@ -66,6 +86,6 @@ export default function AnniversarySection() {
     <div className="together-stations" aria-label="Những mốc của tụi mình">
       {anniversary.beats.map((beat, index) => <button key={beat.label} className="together-station" aria-pressed={selected === index} onClick={() => selectNote(index)}><span className="together-station__number">0{index + 1}</span><span><small>{beat.label}</small><strong>{beat.copy}</strong></span><i aria-hidden="true">↗</i></button>)}
     </div>
-    <footer className="together-footer"><span>câu chuyện này, mình còn viết tiếp.</span><button className="together-next" onClick={() => goTo(0)}>Xem lại từ đầu <i aria-hidden="true">↺</i></button></footer>
+    <footer className="together-footer"><button className="together-next" onClick={() => goTo(0)}>Xem lại từ đầu <i aria-hidden="true">↺</i></button></footer>
   </section>;
 }
