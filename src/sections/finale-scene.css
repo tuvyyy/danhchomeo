@@ -154,4 +154,5 @@ html[data-letter-wish-handoff] .finale-scene,html[data-wish-anniversary-handoff]
 @media(prefers-reduced-motion:reduce) and (max-width:600px) { .butterfly-flight--rose { transform:translate(64vw,52svh) rotate(-25deg); }.butterfly-flight--light { transform:translate(76vw,10svh) rotate(25deg); }.butterfly-flight--edge { transform:translate(67vw,77svh) rotate(-12deg); } }
 @media(prefers-reduced-motion:reduce) { .butterfly-lift { transform:none!important; } }
 @media(prefers-reduced-motion:reduce) { .butterfly-flight--wander { transform:translate(17vw,18svh) rotate(-20deg); }.butterfly-flight--roam { transform:translate(76vw,60svh) rotate(24deg); } }
+@media(prefers-reduced-motion:reduce) and (max-width:600px) { .butterfly-flight--wander { transform:translate(3vw,74svh) rotate(-20deg); } }
 @media(prefers-reduced-motion:reduce) { .candle-room-glow i { animation:none!important;opacity:.7; }.finale-lighting,.celebration-scene::before,.celebration-scene::after,.birthday-cake img,.candle-room-glow,.finale-scene,.finale-header,.finale-kicker,.finale-copy h2 em,.finale-body,.wind-invitation,.finale-controls button,.finale-footer { transition-duration:.15s; } }
