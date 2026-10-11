@@ -35,7 +35,7 @@ function LetterPage({ index }: { index: number }) {
   const page = BIRTHDAY_DATA.letter.pages[1];
   return (
     <article className="letter-page" data-page="1">
-      <div className="letter-page__meta"><span>GỬI RIÊNG EM</span><span>10 / 11</span></div>
+      <div className="letter-page__meta"><span>GỬI CHO MEO</span><span>10 / 11</span></div>
       <h3>{page.title}</h3>
       {page.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
       <p className="letter-page__signature">{page.closing}</p>

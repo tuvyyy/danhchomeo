@@ -72,12 +72,12 @@ export default function FinaleSection({ onComplete }: { onComplete?: () => void 
     <header className="finale-header"><span>CHƯƠNG 04 / MỘT ĐIỀU ƯỚC</span><span>10 NOVEMBER</span></header>
     <div className="finale-main">
       <div className="finale-copy" data-mascot-obstacle>
-        <span className="finale-kicker">DÀNH RIÊNG EM MÈO</span>
+        <span className="finale-kicker">DÀNH RIÊNG EM MEO</span>
         <h2>{blown?<><span>Thêm một tuổi,</span><em>thêm thương.</em></>:<><span>Ước một điều.</span><em>Để gió gửi đi.</em></>}</h2>
-        <p className="finale-body">{blown?'Chúc em một tuổi mới bình an. Phần còn lại, có tui ở đây.':'Nhắm mắt một chút, giữ trong lòng điều em mong nhất.'}</p>
+        <p className="finale-body">{blown?'Chúc em meo một tuổi mới bình an. Phần còn lại, có em bé ở đây.':'Nhắm mắt một chút, giữ trong lòng những điều em meo mong nhất.'}</p>
         <div className="finale-controls">
           {!blown?<>
-            <span className="wind-invitation"><svg viewBox="0 0 48 20" fill="none" aria-hidden="true"><path d="M1 5h31c11 0 11-7 4-7M8 11h33c8 0 8 8 1 8M1 17h22"/></svg>{mobile?'Vuốt ngang ngọn nến để gửi điều ước.':'Quơ chuột ngang ngọn nến để gửi điều ước.'}</span>
+            <span className="wind-invitation"><svg viewBox="0 0 48 20" fill="none" aria-hidden="true"><path d="M1 5h31c11 0 11-7 4-7M8 11h33c8 0 8 8 1 8M1 17h22"/></svg>{mobile?'Vuốt ngang ngọn nến để thổi nến nhá.':'Quơ chuột ngang ngọn nến để thổi nến nhá.'}</span>
             <button ref={blowButton} className="candle-blow-action" onClick={blow}>Thổi nến <span aria-hidden="true">↗</span></button>
           </>:<div className="blown-actions"><button ref={reigniteButton} className="reignite-btn" onClick={reignite}>Thắp lại nến <span aria-hidden="true">↺</span></button><button className="wish-next" onClick={onComplete}>Ngày của tụi mình <span aria-hidden="true">↗</span></button></div>}
         </div>

@@ -134,13 +134,12 @@ export const BIRTHDAY_DATA = {
         closing: "Một chút lòng mình, gửi em.",
       },
       {
-        title: "Mong em luôn vui,",
+        title: "Mong meo luôn zui zui,",
         paragraphs: [
-          "Mong tuổi mới của em có thật nhiều ngày nhẹ tênh, nhiều món ngon và nhiều điều nhỏ xíu khiến em mỉm cười.",
-          "Nếu có một ngày hơi mệt, em cứ cho mình nghỉ một chút nha. Em không cần lúc nào cũng phải mạnh mẽ; em xứng đáng được yêu thương cả những lúc bình thường nhất.",
-          "Chúc mừng sinh nhật em mèo. Những món quà có thể nhỏ thôi, nhưng tình cảm gửi cùng thì luôn thật nhiều.",
+          "Mong tuổi mới của meo có thật nhiều ngày nhẹ tênh, kiểu nhẹ như bong bóng bay lên cây làm tổ á. Bay cao cao xíu cho khám phá nhiều mây nhìu cảnh đẹp nháaaaa.",
+          "Sinh nhật em meo happy happy thật nhiều ạhhhh. Những món quà có thể nhỏ thôi, nhưng tình eww của em bé cho meo luôn chà bá ạhhhh",
         ],
-        closing: "Luôn thương em. ♡",
+        closing: "Luôn thương yêu em meooo. ♡",
       },
     ],
   },
