@@ -35,3 +35,15 @@
  .job-entry__footer { font-size:12px;margin-top:auto;gap:10px; }.job-entry__footer > span:last-child { text-align:right; }
 }
 @media(prefers-reduced-motion:reduce) { .job-entry input,.job-entry__submit { transition:none; }.job-entry__spinner { animation:none; } }
+
+.job-entry__header > span,.job-entry__eyebrow,.job-entry__panel-label,.job-entry__window-bar { font-size:14px; }
+.job-entry__panel > p,.job-entry form label,.job-entry__submit { font-size:15px; }
+.job-entry input { font-size:16px; }
+.job-entry__password button,.job-entry__feedback { font-size:13px; }
+.job-entry__footer { font-size:20px;color:#756452; }
+@media(max-width:700px) {
+ .job-entry__header > span,.job-entry__window-bar { font-size:12px; }
+ .job-entry__eyebrow { font-size:14px; }
+ .job-entry__panel > p { font-size:14px; }
+ .job-entry__footer { font-size:17px; }
+}

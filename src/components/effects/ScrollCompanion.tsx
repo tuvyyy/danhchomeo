@@ -35,9 +35,11 @@ export default function ScrollCompanion() {
       const edge = mobile ? 12 : 24;
       // Leave the stationery corners clear in the envelope chapter.
       const lowest = chapter === "wallet" ? (mobile ? 112 : 164) : edge;
-      const bubbleHeight = host.current?.querySelector('.journey-mascot__speech')?.getBoundingClientRect().height ?? 0;
-      const obstacles = [...document.querySelectorAll<HTMLElement>(`#chapter-${chapter} h1, #chapter-${chapter} h2, #chapter-${chapter} h3, #chapter-${chapter} p, #chapter-${chapter} button, #chapter-${chapter} .together-date, #chapter-${chapter} .together-count, #chapter-${chapter} [data-mascot-obstacle], nav`)]
-        .map(node => ({ rect: node.getBoundingClientRect(), weight: node.tagName === 'BUTTON' ? 8 : node.matches('[data-mascot-obstacle]') ? .2 : node.matches('.together-date, .together-count') ? 2 : 1 }))
+      const bubble = host.current?.querySelector('.journey-mascot__speech')?.getBoundingClientRect();
+      const bubbleHeight = bubble?.height ?? 0;
+      const bubbleWidth = bubble?.width ?? 280;
+      const obstacles = [...document.querySelectorAll<HTMLElement>(`#chapter-${chapter} h1, #chapter-${chapter} h2, #chapter-${chapter} h3, #chapter-${chapter} p, #chapter-${chapter} button, #chapter-${chapter} .candle-flame-wrap, #chapter-${chapter} .together-date, #chapter-${chapter} .together-count, #chapter-${chapter} [data-mascot-obstacle], nav`)]
+        .map(node => ({ rect: node.getBoundingClientRect(), weight: node.matches('.candle-flame-wrap') ? 32 : node.tagName === 'BUTTON' ? 8 : node.matches('[data-mascot-obstacle]') ? .2 : node.matches('.together-date, .together-count') ? 2 : 1 }))
         .filter(({ rect }) => rect.width && rect.height && rect.bottom > 0 && rect.top < innerHeight);
       let best = { side: config.side, bottom: edge, score: Infinity };
       for (const side of [config.side, config.side === "left" ? "right" as const : "left" as const]) {
@@ -45,7 +47,7 @@ export default function ScrollCompanion() {
           const x = side === "left" ? edge : innerWidth - edge - width;
           const y = innerHeight - bottom - height;
           const boxes = [{ left: x - 4, right: x + width + 8, top: y - 28, bottom: y + height }];
-          if (speech && !collapsed) boxes.push({ left: side === "left" ? x : x + width - 230, right: side === "left" ? x + 230 : x + width, top: y - bubbleHeight - 14, bottom: y - 14 });
+          if (speech && !collapsed) boxes.push({ left: side === "left" ? x : x + width - bubbleWidth, right: side === "left" ? x + bubbleWidth : x + width, top: y - bubbleHeight - 14, bottom: y - 14 });
           if (boxes.some(box => box.top < edge)) continue;
           let score = bottom * .4 + (side === config.side ? 0 : 10);
           for (const box of boxes) for (const { rect, weight } of obstacles) {

@@ -4,8 +4,8 @@ import { scrollMotionDriver } from '@/chapters/scrollMotionDriver';
 import GardenGate from './GardenGate';
 
 /** The gate is an entrance to the original gallery, not a replacement chapter. */
-export default function EntranceGate({ reducedMotion, finePointer, onEntered, onPhotograph }: {
-  reducedMotion: boolean; finePointer: boolean; onEntered: () => void; onPhotograph: () => void;
+export default function EntranceGate({ reducedMotion, finePointer, onEntered }: {
+  reducedMotion: boolean; finePointer: boolean; onEntered: () => void;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const driver = useRef<ReturnType<typeof scrollMotionDriver> | null>(null);
@@ -68,6 +68,6 @@ export default function EntranceGate({ reducedMotion, finePointer, onEntered, on
   }, [entering, reducedMotion]);
 
   return <div ref={host} className="cinematic-hero gate-hero entrance-gate" data-entering={entering}>
-    <GardenGate active transitioning={entering} reducedMotion={reducedMotion} finePointer={finePointer} onEnter={() => begin()} onPhotograph={onPhotograph} />
+    <GardenGate active transitioning={entering} reducedMotion={reducedMotion} finePointer={finePointer} onEnter={() => begin()} />
   </div>;
 }

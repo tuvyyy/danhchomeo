@@ -39,9 +39,9 @@ function GateSockets() {
   </svg>;
 }
 
-type Props = { active: boolean; transitioning: boolean; reducedMotion: boolean; finePointer: boolean; onEnter: () => void; onPhotograph: () => void };
+type Props = { active: boolean; transitioning: boolean; reducedMotion: boolean; finePointer: boolean; onEnter: () => void };
 
-export default function GardenGate({ active, transitioning, reducedMotion, finePointer, onEnter, onPhotograph }: Props) {
+export default function GardenGate({ active, transitioning, reducedMotion, finePointer, onEnter }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -85,7 +85,6 @@ export default function GardenGate({ active, transitioning, reducedMotion, fineP
     </div>
     <div className="garden-gate__grain" aria-hidden="true" />
     <header className="garden-gate__header">
-      <button type="button" className="garden-gate__photo" onClick={onPhotograph} disabled={!available} aria-label="Tấm hình của tụi mình"><span aria-hidden="true">♡</span></button>
       <span>DÀNH CHO EM MEO</span><span className="garden-gate__date">10 / 11</span>
     </header>
     <div className="garden-gate__copy">

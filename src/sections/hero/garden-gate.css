@@ -24,7 +24,7 @@
 .garden-gate__shade { position:absolute;inset:0;background:linear-gradient(0deg,#181c15b3,transparent 36%),linear-gradient(90deg,#18211c52,transparent 56%); }
 .garden-gate__grain { position:absolute;inset:0;pointer-events:none;opacity:.042;z-index:6;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.83' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
 .garden-gate__header { position:absolute;top:26px;left:28px;right:28px;display:flex;align-items:center;justify-content:space-between;z-index:5;font:11px/1.5 var(--font-display);letter-spacing:.13em;color:#fff8e5;text-shadow:0 1px 8px #26301c; }
-.garden-gate__header > span:nth-child(2) { position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap; }
+.garden-gate__header > span:first-child { white-space:nowrap; }
 .garden-gate__photo { display:grid;place-items:center;width:42px;height:42px;border:1px solid #b29a6d55;border-radius:50%;background:transparent;color:#eadfca;cursor:pointer;font:italic 24px/1 var(--font-display);transition:background .3s; }
 .garden-gate__photo:hover { background:#e9d6a515; }
 .garden-gate__date { font:9px/1.5 var(--font-body);letter-spacing:.16em; }
@@ -86,4 +86,17 @@ html[data-hero-garden-handoff] [data-journey-ui],html[data-hero-garden-handoff] 
 @media(prefers-reduced-motion:reduce) {
  .gate-hero .garden-gate__copy h1,.garden-gate__chapter p { filter:none; }
  .garden-gate__enter { transition:none; }
+}
+
+.garden-gate__header { font-size:16px; }
+.garden-gate__date { font-size:14px; }
+.garden-gate__footer { font-size:14px;letter-spacing:.08em;gap:24px; }
+.gate-hero .garden-gate__enter { font-size:14px; }
+@media(max-width:600px) {
+ .garden-gate__header { font-size:14px; }
+ .garden-gate__date { font-size:13px; }
+ .garden-gate__footer { font-size:12px;letter-spacing:.03em;gap:16px; }
+ .garden-gate__footer > span:first-child { max-width:46%; }
+ .garden-gate__footer > span:last-child { max-width:46%;text-align:right; }
+ .gate-hero .garden-gate__enter { font-size:12px; }
 }
