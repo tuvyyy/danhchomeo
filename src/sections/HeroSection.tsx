@@ -28,7 +28,7 @@ export default function HeroSection({ onComplete }: { onComplete: (options?: { i
       </header>
       <div className="hero-gallery__center">
         <div className="hero-gallery__signature"><span className="hero-gallery__monogram">m</span><span>DÀNH CHO<br />EM MEO</span></div>
-        <h1>Chúc mừng em,<em>và tụi mình.</em></h1>
+        <h1>Chào mừng em,<em>và welcome meo.</em></h1>
 
       </div>
       <footer className="hero-gallery__footer">
