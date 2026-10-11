@@ -48,12 +48,10 @@ export default function EntryGate() {
     <div className="job-entry__main">
       <div className="job-entry__window-bar" aria-hidden="true"><span><i /><i /><i /></span><span>vào xem thử / 01</span><span>↗</span></div>
       <section className="job-entry__intro" aria-labelledby="demo-title">
-        <span className="job-entry__eyebrow">hello, bạn ghé chơi.</span>
-        <h1 id="demo-title">Vào nghịch<br /><em>một chút nha.</em></h1>
-        <p>Có một chiếc demo đang chờ bạn xem thử.<br />Nhập tài khoản mình gửi là vào được nè.</p>
+        <span id="demo-title" className="job-entry__eyebrow">hello, bạn ghé chơi.</span>
         <div className="job-entry__desk" aria-hidden="true">
           <div className="job-entry__folder"><span>little things</span><svg viewBox="0 0 130 80" fill="none"><path d="M8 60c23-48 73-58 108-31M103 16l14 12-15 13" /></svg><small>open & explore ↗</small></div>
-          <div className="job-entry__sticky"><i />nhờ bạn<br />xem giúp xíu.<span>thank you :)</span></div>
+          <div className="job-entry__sticky"><i />big things<span>thank you :)</span></div>
         </div>
       </section>
       <section className="job-entry__panel" aria-labelledby="login-title">
