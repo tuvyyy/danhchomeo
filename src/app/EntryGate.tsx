@@ -51,7 +51,7 @@ export default function EntryGate() {
         <span id="demo-title" className="job-entry__eyebrow">hello, bạn ghé chơi.</span>
         <div className="job-entry__desk" aria-hidden="true">
           <div className="job-entry__folder"><span>little things</span><svg viewBox="0 0 130 80" fill="none"><path d="M8 60c23-48 73-58 108-31M103 16l14 12-15 13" /></svg><small>open & explore ↗</small></div>
-          <div className="job-entry__sticky"><i />big things<span>thank you :)</span></div>
+          <div className="job-entry__sticky"><i />big things</div>
         </div>
       </section>
       <section className="job-entry__panel" aria-labelledby="login-title">
