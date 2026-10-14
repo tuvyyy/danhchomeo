@@ -88,8 +88,8 @@ export default function GardenGate({ active, transitioning, reducedMotion, fineP
       <span>DÀNH CHO EM MEO</span><span className="garden-gate__date">10 / 11</span>
     </header>
     <div className="garden-gate__copy">
-      <h1><em>Gửi em,</em><span>MỘT TRỜI</span><span>THƯƠNG.</span></h1>
-      <p>Có những điều chỉ muốn dành cho một người.<br />Và người đó, là em.</p>
+      <h1><em>Gửi em meo,</em><span>MỘT TRỜI</span><span>THƯƠNG.</span></h1>
+      <p>Có những điều chỉ muốn dành cho một người.<br />Và người đó, là em meo.</p>
       <button type="button" className="cinematic-hero__cta garden-gate__enter" onClick={onEnter} disabled={!available} onFocus={focus} onBlur={blur}>
         <span>Bước vào câu chuyện</span><span aria-hidden="true">↗</span>
       </button>
